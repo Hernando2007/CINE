@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CineMax — Comprar Entradas</title>
+  <link rel="stylesheet" href="./css/comprar.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">🎬 CINEMAX</div>
+    <ul class="nav-links">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./cartelera.html">Cartelera</a></li>
+      <li><a href="./nosotros.html">Nosotros</a></li>
+      <li><a href="./contacto.html">Contáctenos</a></li>
+    </ul>
+    <button class="btn-nav">Comprar</button>
+  </nav>
+
+  <main>
+
+    <div class="titulo-pagina">
+      <p class="tag-rojo">ENTRADAS</p>
+      <h1>Compra tu entrada</h1>
+    </div>
+
+    <div class="contenido">
+
+      <!-- FORMULARIO -->
+      <div class="formulario">
+
+        <!-- Película -->
+        <div class="grupo">
+          <label>Película</label>
+          <select name="pelicula" title="Selecciona una película">
+            <option value="">Selecciona una película...</option>
+            <option>El Código Roto — Acción · 2h 18m</option>
+            <option>Un Verano Eterno — Drama · 1h 52m</option>
+            <option>La Casa del Miedo — Terror · 1h 45m</option>
+            <option>Tormenta Total — Aventura · 2h 05m</option>
+          </select>
+        </div>
+
+        <!-- Fecha y Hora -->
+        <div class="fila-dos">
+          <div class="grupo">
+            <label>Fecha</label>
+            <input type="date" min="2026-03-06" title="Selecciona una fecha"/>
+          </div>
+          <div class="grupo">
+            <label>Horario</label>
+            <select name="horario" title="Selecciona un horario">
+              <option value="">Selecciona...</option>
+              <option>2:00 PM — Sala IMAX</option>
+              <option>5:30 PM — Sala IMAX</option>
+              <option>3:15 PM — Sala 4DX</option>
+              <option>6:45 PM — Sala 4DX</option>
+              <option>4:00 PM — Sala Normal</option>
+              <option>7:00 PM — Sala Normal</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Entradas -->
+        <div class="fila-dos">
+          <div class="grupo">
+            <label>Entradas adulto <span class="precio-label">$18.000</span></label>
+            <div class="contador">
+              <button type="button" onclick="cambiar('adulto', -1)">−</button>
+              <span id="adulto">0</span>
+              <button type="button" onclick="cambiar('adulto', 1)">+</button>
+            </div>
+          </div>
+          <div class="grupo">
+            <label>Entradas niño <span class="precio-label">$12.000</span></label>
+            <div class="contador">
+              <button type="button" onclick="cambiar('nino', -1)">−</button>
+              <span id="nino">0</span>
+              <button type="button" onclick="cambiar('nino', 1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Datos -->
+        <div class="grupo">
+          <label>Nombre completo</label>
+          <input type="text" placeholder="Tu nombre"/>
+        </div>
+
+        <div class="grupo">
+          <label>Correo electrónico</label>
+          <input type="email" placeholder="correo@email.com"/>
+        </div>
+
+        <!-- Método de pago -->
+        <div class="grupo">
+          <label>Método de pago</label>
+          <div class="metodos">
+            <div class="metodo activo" onclick="selMetodo(this)">💳 Tarjeta</div>
+            <div class="metodo" onclick="selMetodo(this)">📱 Nequi</div>
+            <div class="metodo" onclick="selMetodo(this)">🏦 PSE</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RESUMEN -->
+      <div class="resumen">
+        <h3>Resumen</h3>
+
+        <div class="resumen-fila">
+          <span>Adultos</span>
+          <strong id="r-adulto">0 × $18.000</strong>
+        </div>
+        <div class="resumen-fila">
+          <span>Niños</span>
+          <strong id="r-nino">0 × $12.000</strong>
+        </div>
+
+        <div class="resumen-divider"></div>
+
+        <div class="resumen-fila total">
+          <span>Total</span>
+          <strong id="r-total">$0</strong>
+        </div>
+
+        <button class="btn-pagar">Confirmar y pagar</button>
+        <p class="seguro">🔒 Pago seguro y encriptado</p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    let adultos = 0, ninos = 0;
+
+    function cambiar(tipo, val) {
+      if (tipo === 'adulto') {
+        adultos = Math.max(0, adultos + val);
+        document.getElementById('adulto').textContent = adultos;
+        document.getElementById('r-adulto').textContent = adultos + ' × $18.000';
+      } else {
+        ninos = Math.max(0, ninos + val);
+        document.getElementById('nino').textContent = ninos;
+        document.getElementById('r-nino').textContent = ninos + ' × $12.000';
+      }
+      const total = adultos * 18000 + ninos * 12000;
+      document.getElementById('r-total').textContent = '$' + total.toLocaleString('es-CO');
+    }
+
+    function selMetodo(el) {
+      document.querySelectorAll('.metodo').forEach(m => m.classList.remove('activo'));
+      el.classList.add('activo');
+    }
+  </script>
+
+</body>
+</html>
