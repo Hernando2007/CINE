@@ -135,29 +135,5 @@
     </div>
 
   </main>
-
-  <script>
-    let adultos = 0, ninos = 0;
-
-    function cambiar(tipo, val) {
-      if (tipo === 'adulto') {
-        adultos = Math.max(0, adultos + val);
-        document.getElementById('adulto').textContent = adultos;
-        document.getElementById('r-adulto').textContent = adultos + ' × $18.000';
-      } else {
-        ninos = Math.max(0, ninos + val);
-        document.getElementById('nino').textContent = ninos;
-        document.getElementById('r-nino').textContent = ninos + ' × $12.000';
-      }
-      const total = adultos * 18000 + ninos * 12000;
-      document.getElementById('r-total').textContent = '$' + total.toLocaleString('es-CO');
-    }
-
-    function selMetodo(el) {
-      document.querySelectorAll('.metodo').forEach(m => m.classList.remove('activo'));
-      el.classList.add('activo');
-    }
-  </script>
-
 </body>
 </html>
