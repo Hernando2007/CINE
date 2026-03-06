@@ -1,41 +1,174 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/contacto.css">
-  <title>CinePlus - Contáctenos</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CineMax — Contáctenos</title>
+  <link rel="stylesheet" href="./css/contacto.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
-  <header>
-    <h1>CinePlus</h1>
-    <h2>Contáctenos</h2>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="catelera.html">Cartelera</a>
-      <a href="nosotros.html">Nosotros</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
-  </header>
 
-  <section class="contacto">
-    <div class="info">
-      <h2>Información de CinePlus</h2>
-      <p><strong>Dirección:</strong> Calle Principal #123, Garzón, Huila</p>
-      <p><strong>Teléfono:</strong> +57 310 123 4567</p>
-      <p><strong>Email:</strong> contacto@cineplus.com</p>
-      <p><strong>Horario:</strong> Lunes a Domingo - 10:00 AM a 11:00 PM</p>
+  <!-- NAV -->
+  <nav>
+    <div class="logo">🎬 CINEMAX</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cartelera.html">Cartelera</a></li>
+      <li><a href="#">Galería</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+    </ul>
+    <button class="btn-nav" onclick="location.href='comprar.html'">Comprar</button>
+  </nav>
+
+  <!-- BANNER -->
+  <div class="banner">
+    <p class="tag-rojo">ATENCIÓN AL CLIENTE</p>
+    <h1>Contáctenos</h1>
+    <p>Estamos aquí para ayudarte</p>
+  </div>
+
+  <main>
+
+    <div class="contenido">
+
+      <!-- FORMULARIO -->
+      <div class="formulario">
+        <h2>Envíanos un mensaje</h2>
+
+        <div class="grupo">
+          <label>Nombre completo</label>
+          <input type="text" placeholder="Tu nombre"/>
+        </div>
+
+        <div class="grupo">
+          <label>Correo electrónico</label>
+          <input type="email" placeholder="correo@email.com"/>
+        </div>
+
+        <div class="grupo">
+          <label>Asunto</label>
+          <select aria-label="Selecciona un asunto">
+            <option value="">Selecciona un asunto...</option>
+            <option>Información sobre películas</option>
+            <option>Problema con mi compra</option>
+            <option>Reservas y entradas</option>
+            <option>Salas y experiencias</option>
+            <option>Otro</option>
+          </select>
+        </div>
+
+        <div class="grupo">
+          <label>Mensaje</label>
+          <textarea placeholder="Escribe tu mensaje aquí..." rows="5"></textarea>
+        </div>
+
+        <button class="btn-enviar">Enviar mensaje</button>
+      </div>
+
+      <!-- INFO DE CONTACTO -->
+      <div class="info-panel">
+
+        <div class="info-card">
+          <span class="info-icono">📍</span>
+          <div>
+            <h4>Dirección</h4>
+            <p>Calle 72 # 10-34, Bogotá<br/>Carrera 65 # 44-45, Medellín</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <span class="info-icono">📞</span>
+          <div>
+            <h4>Teléfono</h4>
+            <p>+57 601 234 5678<br/>Lun – Dom: 9am – 10pm</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <span class="info-icono">✉️</span>
+          <div>
+            <h4>Correo</h4>
+            <p>info@cinemax.com.co<br/>soporte@cinemax.com.co</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <span class="info-icono">💬</span>
+          <div>
+            <h4>Redes sociales</h4>
+            <div class="redes">
+              <a href="#">Instagram</a>
+              <a href="#">Facebook</a>
+              <a href="#">Twitter/X</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mapa placeholder -->
+        <div class="mapa-placeholder">
+          <span>📍 Bogotá, Colombia</span>
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="formulario">
-      <h2>Envíanos un mensaje</h2>
-      <form>
-        <input type="text" placeholder="Tu nombre" required>
-        <input type="email" placeholder="Tu correo" required>
-        <textarea rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
+    <!-- PREGUNTAS FRECUENTES -->
+    <div class="faq-section">
+      <p class="tag-rojo">PREGUNTAS FRECUENTES</p>
+      <h2>¿Tienes dudas?</h2>
+
+      <div class="faqs">
+
+        <div class="faq" onclick="toggleFaq(this)">
+          <div class="faq-pregunta">
+            <span>¿Puedo cancelar o cambiar mi entrada?</span>
+            <span class="faq-icono">+</span>
+          </div>
+          <div class="faq-respuesta">
+            <p>Sí, puedes cancelar hasta 2 horas antes de la función. El reembolso se procesa en 3–5 días hábiles a tu método de pago.</p>
+          </div>
+        </div>
+
+        <div class="faq" onclick="toggleFaq(this)">
+          <div class="faq-pregunta">
+            <span>¿Cómo recibo mis entradas?</span>
+            <span class="faq-icono">+</span>
+          </div>
+          <div class="faq-respuesta">
+            <p>Recibirás un correo con tu ticket digital. Puedes presentarlo en tu celular o imprimirlo en la taquilla.</p>
+          </div>
+        </div>
+
+        <div class="faq" onclick="toggleFaq(this)">
+          <div class="faq-pregunta">
+            <span>¿Hay descuentos para estudiantes o adultos mayores?</span>
+            <span class="faq-icono">+</span>
+          </div>
+          <div class="faq-respuesta">
+            <p>Sí. Con carné estudiantil o cédula de adulto mayor obtienes un 30% de descuento presentándolo en taquilla.</p>
+          </div>
+        </div>
+
+        <div class="faq" onclick="toggleFaq(this)">
+          <div class="faq-pregunta">
+            <span>¿Tienen salas accesibles para personas en silla de ruedas?</span>
+            <span class="faq-icono">+</span>
+          </div>
+          <div class="faq-respuesta">
+            <p>Todas nuestras sedes cuentan con acceso y espacios especiales. Al comprar tu entrada selecciona "accesibilidad" y reservamos el lugar adecuado.</p>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 CineMax. Todos los derechos reservados. · Bogotá, Colombia</p>
+  </footer>
 </body>
 </html>

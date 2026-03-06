@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CineMax — Cartelera</title>
+  <link rel="stylesheet" href="./css/cartelera.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">🎬 CINEMAX</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#" class="activo">Cartelera</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="./contacto.html">Contáctenos</a></li>
+    </ul>
+    <button class="btn-nav" onclick="location.href='comprar.html'">Comprar</button>
+  </nav>
+
+  <!-- BANNER -->
+  <div class="banner">
+    <p class="tag-rojo">PROGRAMACIÓN</p>
+    <h1>Cartelera</h1>
+    <p>Encuentra la película perfecta para hoy</p>
+  </div>
+
+  <!-- FILTROS -->
+  <div class="filtros-bar">
+    <div class="filtros">
+      <button class="filtro activo" onclick="filtrar(this, 'todas')">Todas</button>
+      <button class="filtro" onclick="filtrar(this, 'accion')">Acción</button>
+      <button class="filtro" onclick="filtrar(this, 'drama')">Drama</button>
+      <button class="filtro" onclick="filtrar(this, 'terror')">Terror</button>
+      <button class="filtro" onclick="filtrar(this, 'aventura')">Aventura</button>
+      <button class="filtro" onclick="filtrar(this, 'animacion')">Animación</button>
+    </div>
+    <select class="orden-select" title="Ordenar películas" aria-label="Ordenar películas por">
+      <option>Más populares</option>
+      <option>Más recientes</option>
+      <option>Mejor calificadas</option>
+    </select>
+  </div>
+
+  <!-- PELÍCULAS -->
+  <main>
+    <div class="grid" id="grid">
+
+      <div class="card" data-gen="accion">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&q=80" alt=""/>
+          <span class="badge">IMAX</span>
+          <div class="card-hover">
+            <p>Un detective descubre una red de corrupción que va hasta las más altas esferas del poder.</p>
+            <button onclick="location.href='comprar.html'">Comprar entrada</button>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="card-top">
+            <h3>El Código Roto</h3>
+            <span class="rating">8.4 ★</span>
+          </div>
+          <p class="genero">Acción · Thriller · 2h 18m</p>
+          <div class="horarios">
+            <span>2:00 PM</span>
+            <span>5:30 PM</span>
+            <span>10:30 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-gen="drama">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=500&q=80" alt=""/>
+          <span class="badge badge-verde">NUEVO</span>
+          <div class="card-hover">
+            <p>Dos desconocidos se encuentran en un pequeño pueblo y descubren que sus vidas están más conectadas de lo que creen.</p>
+            <button onclick="location.href='comprar.html'">Comprar entrada</button>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="card-top">
+            <h3>Un Verano Eterno</h3>
+            <span class="rating">9.1 ★</span>
+          </div>
+          <p class="genero">Romance · Drama · 1h 52m</p>
+          <div class="horarios">
+            <span>3:00 PM</span>
+            <span>6:00 PM</span>
+            <span>8:30 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-gen="terror">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=500&q=80" alt=""/>
+          <div class="card-hover">
+            <p>Una familia se muda a una antigua casa y comienza a vivir sucesos inexplicables que amenazan su cordura.</p>
+            <button onclick="location.href='comprar.html'">Comprar entrada</button>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="card-top">
+            <h3>La Casa del Miedo</h3>
+            <span class="rating">7.0 ★</span>
+          </div>
+          <p class="genero">Terror · Suspenso · 1h 45m</p>
+          <div class="horarios">
+            <span>4:00 PM</span>
+            <span>7:00 PM</span>
+            <span>9:45 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-gen="aventura">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=500&q=80" alt=""/>
+          <span class="badge badge-azul">4DX</span>
+          <div class="card-hover">
+            <p>Un grupo de científicos lucha por sobrevivir en medio de la tormenta más poderosa jamás registrada.</p>
+            <button onclick="location.href='comprar.html'">Comprar entrada</button>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="card-top">
+            <h3>Tormenta Total</h3>
+            <span class="rating">8.7 ★</span>
+          </div>
+          <p class="genero">Aventura · Acción · 2h 05m</p>
+          <div class="horarios">
+            <span>1:00 PM</span>
+            <span>4:30 PM</span>
+            <span>8:00 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-gen="animacion">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1560328055-e938bb2ed50a?w=500&q=80" alt=""/>
+          <span class="badge badge-verde">FAMILIA</span>
+          <div class="card-hover">
+            <p>Un pequeño robot descubre un mundo mágico escondido debajo de la ciudad y emprende una aventura épica.</p>
+            <button onclick="location.href='comprar.html'">Comprar entrada</button>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="card-top">
+            <h3>Mundo Pequeño</h3>
+            <span class="rating">8.9 ★</span>
+          </div>
+          <p class="genero">Animación · Familia · 1h 38m</p>
+          <div class="horarios">
+            <span>11:00 AM</span>
+            <span>2:30 PM</span>
+            <span>5:00 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-gen="accion">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?w=500&q=80" alt=""/>
+          <span class="badge">IMAX</span>
+          <div class="card-hover">
+            <p>Una misión espacial de rescate se convierte en la mayor odisea de la humanidad.</p>
+            <button onclick="location.href='comprar.html'">Comprar entrada</button>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="card-top">
+            <h3>Más Allá del Horizonte</h3>
+            <span class="rating">9.3 ★</span>
+          </div>
+          <p class="genero">Sci-Fi · Aventura · 2h 30m</p>
+          <div class="horarios">
+            <span>3:30 PM</span>
+            <span>7:30 PM</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>
