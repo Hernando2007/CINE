@@ -1,0 +1,544 @@
+/* ================================
+   CineMax — nosotros.css
+   ================================ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+img { display: block; width: 100%; object-fit: cover; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ================================
+   NAV
+   ================================ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: rgba(0,0,0,0.7);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.7rem;
+  letter-spacing: 0.1em;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  font-size: 0.83rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.activo { color: #fff; }
+
+.btn-nav {
+  background: #e63030;
+  color: #fff;
+  border: none;
+  padding: 9px 24px;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-nav:hover { background: #c01e1e; }
+
+/* ================================
+   BANNER
+   ================================ */
+.banner {
+  position: relative;
+  height: 52vh;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.banner img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.45) 70%);
+}
+
+.banner-texto {
+  position: relative;
+  z-index: 2;
+  padding: 0 70px;
+  padding-top: 80px;
+}
+
+.tag-rojo {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #e63030;
+  margin-bottom: 12px;
+}
+
+.banner-texto h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 5.5rem;
+  line-height: 0.95;
+  letter-spacing: 0.03em;
+}
+
+.banner-texto h1 span { color: #e63030; }
+
+/* ================================
+   HISTORIA DEL CINE
+   ================================ */
+.historia-section {
+  padding: 90px 70px;
+  background: #0f0f0f;
+}
+
+.historia-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 70px;
+}
+
+.historia-header h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem;
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+  color: #fff;
+  margin: 10px 0 16px;
+}
+
+.historia-intro {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.75;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Línea vertical central */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: rgba(255,255,255,0.1);
+  transform: translateX(-50%);
+}
+
+.tl-item {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 48px;
+}
+
+/* Item derecha: voltear el contenido */
+.tl-item--derecha {
+  direction: rtl;
+}
+.tl-item--derecha .tl-contenido {
+  direction: ltr;
+  text-align: right;
+}
+.tl-item--derecha .tl-año {
+  direction: ltr;
+  text-align: left;
+}
+
+.tl-año {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  color: rgba(255,255,255,0.12);
+  letter-spacing: 0.04em;
+  text-align: right;
+  padding-right: 24px;
+}
+
+.tl-linea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.tl-punto {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #333;
+  border: 2px solid rgba(255,255,255,0.25);
+}
+
+.tl-punto--rojo {
+  background: #e63030;
+  border-color: #e63030;
+  box-shadow: 0 0 16px rgba(230,48,48,0.5);
+  width: 18px;
+  height: 18px;
+}
+
+.tl-contenido {
+  padding-left: 24px;
+}
+
+.tl-contenido h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.tl-contenido p {
+  font-size: 0.86rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+  max-width: 320px;
+}
+
+.tl-contenido--rojo {
+  background: rgba(230,48,48,0.08);
+  border: 1px solid rgba(230,48,48,0.25);
+  border-radius: 10px;
+  padding: 20px 24px;
+}
+
+.tl-contenido--rojo h3 { color: #e63030; }
+.tl-contenido--rojo p  { color: rgba(255,255,255,0.7); max-width: 100%; }
+
+/* ================================
+   MISIÓN Y VISIÓN
+   ================================ */
+.mv-section {
+  display: flex;
+  min-height: 520px;
+}
+
+.mv-imagen {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.mv-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mv-imagen-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent 60%, #0a0a0a 100%);
+}
+
+.mv-contenido {
+  flex: 1;
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 70px 60px;
+  gap: 10px;
+}
+
+.mv-bloque {
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+}
+
+.mv-icono-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: #1a1a1a;
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.mv-icono-wrap--rojo {
+  background: rgba(230,48,48,0.15);
+  border-color: rgba(230,48,48,0.3);
+}
+
+.mv-bloque h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin: 6px 0 10px;
+}
+
+.mv-bloque p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.8;
+  max-width: 400px;
+}
+
+.mv-divisor {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 28px 0;
+}
+
+/* ================================
+   VALORES
+   ================================ */
+.valores-section {
+  padding: 80px 70px;
+  background: #111;
+}
+
+.valores-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.valores-header h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.valores-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.valor-card {
+  background: #1a1a1a;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: border-color 0.3s, transform 0.2s;
+}
+
+.valor-card:hover {
+  border-color: #e63030;
+  transform: translateY(-4px);
+}
+
+.valor-card span {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.valor-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.valor-card p {
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.65;
+}
+
+/* ================================
+   CTA
+   ================================ */
+.cta {
+  background: #e63030;
+  padding: 80px 70px;
+  text-align: center;
+}
+
+.cta h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.cta h2 span { color: #0a0a0a; }
+
+.cta p {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 32px;
+}
+
+.btn-cta {
+  background: #0a0a0a;
+  color: #fff;
+  border: none;
+  padding: 16px 44px;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-cta:hover {
+  background: #1c1c1c;
+  transform: translateY(-2px);
+}
+
+/* ================================
+   FOOTER
+   ================================ */
+footer {
+  background: #050505;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 56px 70px 24px;
+}
+
+.footer-top {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.footer-marca { flex: 2; }
+
+.footer-marca p {
+  color: rgba(255,255,255,0.4);
+  font-size: 0.85rem;
+  margin-top: 10px;
+  line-height: 1.7;
+}
+
+.footer-col { flex: 1; }
+
+.footer-col h4 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.footer-col a {
+  font-size: 0.84rem;
+  color: rgba(255,255,255,0.4);
+  transition: color 0.2s;
+}
+
+.footer-col a:hover { color: #e63030; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 20px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+@media (max-width: 1024px) {
+  .valores-grid { grid-template-columns: repeat(2, 1fr); }
+  .mv-section { flex-direction: column; }
+  .mv-imagen { height: 320px; }
+  .mv-imagen-overlay { background: linear-gradient(to bottom, transparent 60%, #0a0a0a 100%); }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .banner-texto { padding: 0 24px; padding-top: 90px; }
+  .banner-texto h1 { font-size: 3.5rem; }
+  .historia-section { padding: 60px 24px; }
+  .timeline::before { left: 20px; }
+  .tl-item {
+    grid-template-columns: 40px 40px 1fr;
+    direction: ltr !important;
+  }
+  .tl-item--derecha .tl-contenido { text-align: left; }
+  .tl-año { font-size: 1.8rem; padding-right: 0; text-align: left; }
+  .tl-contenido { padding-left: 16px; }
+  .mv-contenido { padding: 40px 24px; }
+  .valores-section { padding: 60px 24px; }
+  .cta { padding: 60px 24px; }
+  .cta h2 { font-size: 2.8rem; }
+  footer { padding: 40px 24px 20px; }
+  .footer-top { flex-direction: column; gap: 28px; }
+}
+
+@media (max-width: 480px) {
+  .valores-grid { grid-template-columns: 1fr; }
+}
