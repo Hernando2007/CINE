@@ -170,20 +170,5 @@
   <footer>
     <p>© 2026 CineHD. Todos los derechos reservados. · Bogotá, Colombia</p>
   </footer>
-
-  <script>
-    function toggleFaq(el) {
-      const abierto = el.classList.contains('abierto');
-      document.querySelectorAll('.faq').forEach(f => {
-        f.classList.remove('abierto');
-        f.querySelector('.faq-icono').textContent = '+';
-      });
-      if (!abierto) {
-        el.classList.add('abierto');
-        el.querySelector('.faq-icono').textContent = '−';
-      }
-    }
-  </script>
-
 </body>
 </html>

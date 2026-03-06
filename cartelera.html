@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CineMax — Cartelera</title>
+  <title>CineHD — Cartelera</title>
   <link rel="stylesheet" href="./css/cartelera.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
 </head>
@@ -11,7 +11,7 @@
 
   <!-- NAV -->
   <nav>
-    <div class="logo">🎬 CINEMAX</div>
+    <div class="logo">🎬 CINEHD</div>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="#" class="activo">Cartelera</a></li>
@@ -187,20 +187,6 @@
 
     </div>
   </main>
-
-  <script>
-    function filtrar(btn, gen) {
-      document.querySelectorAll('.filtro').forEach(b => b.classList.remove('activo'));
-      btn.classList.add('activo');
-      document.querySelectorAll('.card').forEach(card => {
-        if (gen === 'todas' || card.dataset.gen === gen) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-  </script>
 
 </body>
 </html>
