@@ -88,5 +88,19 @@
 
   </section>
 
+    <script>
+    const hamburguesa = document.getElementById('hamburguesa');
+    const menuMovil   = document.getElementById('menuMovil');
+
+    hamburguesa.addEventListener('click', () => {
+      hamburguesa.classList.toggle('activo');
+      menuMovil.classList.toggle('abierto');
+    });
+
+    function cerrarMenu() {
+      hamburguesa.classList.remove('activo');
+      menuMovil.classList.remove('abierto');
+    }
+  </script>
 </body>
 </html>
