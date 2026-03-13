@@ -12,14 +12,34 @@
   <!-- NAV -->
   <nav>
     <div class="logo">🎬 CINEHD</div>
+
     <ul class="nav-links">
       <li><a href="./index.html">Home</a></li>
       <li><a href="./cartelera.html">Cartelera</a></li>
       <li><a href="./nosotros.html">Nosotros</a></li>
       <li><a href="./contacto.html">Contáctenos</a></li>
     </ul>
-    <button class="btn-nav">Comprar</button>
+
+    <button class="btn-nav btn-nav-desktop">Comprar</button>
+
+    <!-- Botón hamburguesa (solo móvil) -->
+    <button class="hamburguesa" id="hamburguesa" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
+
+  <!-- Menú móvil desplegable -->
+  <div class="menu-movil" id="menuMovil">
+    <ul>
+      <li><a href="./index.html" onclick="cerrarMenu()">Home</a></li>
+      <li><a href="./cartelera.html" onclick="cerrarMenu()">Cartelera</a></li>
+      <li><a href="./nosotros.html" onclick="cerrarMenu()">Nosotros</a></li>
+      <li><a href="./contacto.html" onclick="cerrarMenu()">Contáctenos</a></li>
+    </ul>
+    <a href="./comprar.html" class="btn-rojo-movil">Comprar</a>
+  </div>
 
   <main>
 
@@ -33,7 +53,6 @@
       <!-- FORMULARIO -->
       <div class="formulario">
 
-        <!-- Película -->
         <div class="grupo">
           <label>Película</label>
           <select name="pelicula" title="Selecciona una película">
@@ -45,7 +64,6 @@
           </select>
         </div>
 
-        <!-- Fecha y Hora -->
         <div class="fila-dos">
           <div class="grupo">
             <label>Fecha</label>
@@ -65,7 +83,6 @@
           </div>
         </div>
 
-        <!-- Entradas -->
         <div class="fila-dos">
           <div class="grupo">
             <label>Entradas adulto <span class="precio-label">$18.000</span></label>
@@ -85,7 +102,6 @@
           </div>
         </div>
 
-        <!-- Datos -->
         <div class="grupo">
           <label>Nombre completo</label>
           <input type="text" placeholder="Tu nombre"/>
@@ -96,7 +112,6 @@
           <input type="email" placeholder="correo@email.com"/>
         </div>
 
-        <!-- Método de pago -->
         <div class="grupo">
           <label>Método de pago</label>
           <div class="metodos">
@@ -111,7 +126,6 @@
       <!-- RESUMEN -->
       <div class="resumen">
         <h3>Resumen</h3>
-
         <div class="resumen-fila">
           <span>Adultos</span>
           <strong id="r-adulto">0 × $18.000</strong>
@@ -120,14 +134,11 @@
           <span>Niños</span>
           <strong id="r-nino">0 × $12.000</strong>
         </div>
-
         <div class="resumen-divider"></div>
-
         <div class="resumen-fila total">
           <span>Total</span>
           <strong id="r-total">$0</strong>
         </div>
-
         <button class="btn-pagar">Confirmar y pagar</button>
         <p class="seguro">🔒 Pago seguro y encriptado</p>
       </div>
@@ -135,5 +146,41 @@
     </div>
 
   </main>
+
+  <script>
+    // Hamburguesa
+    const hamburguesa = document.getElementById('hamburguesa');
+    const menuMovil   = document.getElementById('menuMovil');
+
+    hamburguesa.addEventListener('click', () => {
+      hamburguesa.classList.toggle('activo');
+      menuMovil.classList.toggle('abierto');
+    });
+
+    function cerrarMenu() {
+      hamburguesa.classList.remove('activo');
+      menuMovil.classList.remove('abierto');
+    }
+
+    // Contadores
+    const precios = { adulto: 18000, nino: 12000 };
+    const counts  = { adulto: 0, nino: 0 };
+
+    function cambiar(tipo, delta) {
+      counts[tipo] = Math.max(0, counts[tipo] + delta);
+      document.getElementById(tipo).textContent = counts[tipo];
+      document.getElementById('r-adulto').textContent = counts.adulto + ' × $18.000';
+      document.getElementById('r-nino').textContent   = counts.nino   + ' × $12.000';
+      const total = counts.adulto * precios.adulto + counts.nino * precios.nino;
+      document.getElementById('r-total').textContent  = '$' + total.toLocaleString('es-CO');
+    }
+
+    // Métodos de pago
+    function selMetodo(el) {
+      document.querySelectorAll('.metodo').forEach(m => m.classList.remove('activo'));
+      el.classList.add('activo');
+    }
+  </script>
+
 </body>
 </html>

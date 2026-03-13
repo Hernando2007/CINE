@@ -14,7 +14,9 @@ body {
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
-/* NAV */
+/* ================================
+   NAV
+   ================================ */
 nav {
   display: flex;
   align-items: center;
@@ -26,7 +28,7 @@ nav {
   border-bottom: 1px solid rgba(255,255,255,0.07);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 200;
 }
 
 .logo {
@@ -59,18 +61,126 @@ nav {
   font-weight: 600;
   text-transform: uppercase;
   cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-nav:hover { background: #c01e1e; }
+
+/* ================================
+   HAMBURGUESA — solo visible en móvil
+   ================================ */
+.hamburguesa {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 300;
 }
 
-/* MAIN */
+.hamburguesa span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburguesa.activo span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburguesa.activo span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburguesa.activo span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ================================
+   MENÚ MÓVIL DESPLEGABLE
+   ================================ */
+.menu-movil {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 150;
+  background: rgba(8, 8, 8, 0.97);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  padding: 90px 36px 50px;
+  flex-direction: column;
+  gap: 8px;
+  transform: translateY(-100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.menu-movil.abierto {
+  transform: translateY(0);
+}
+
+.menu-movil ul {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.menu-movil ul li {
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.menu-movil ul li a {
+  display: block;
+  padding: 16px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  transition: color 0.2s, padding-left 0.2s;
+}
+
+.menu-movil ul li a:hover { color: #fff; padding-left: 10px; }
+.menu-movil ul li a.activo { color: #e63030; }
+
+.btn-rojo-movil {
+  display: inline-block;
+  background: #e63030;
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s;
+}
+.btn-rojo-movil:hover { background: #c01e1e; }
+
+/* ================================
+   MAIN
+   ================================ */
 main {
   max-width: 900px;
   margin: 0 auto;
   padding: 60px 30px 80px;
 }
 
-.titulo-pagina {
-  margin-bottom: 40px;
-}
+.titulo-pagina { margin-bottom: 40px; }
 
 .tag-rojo {
   font-size: 0.7rem;
@@ -97,9 +207,7 @@ main {
 .formulario { flex: 1; }
 
 /* GRUPOS */
-.grupo {
-  margin-bottom: 20px;
-}
+.grupo { margin-bottom: 20px; }
 
 .grupo label {
   display: flex;
@@ -112,10 +220,7 @@ main {
   margin-bottom: 8px;
 }
 
-.precio-label {
-  color: #e63030;
-  font-weight: 700;
-}
+.precio-label { color: #e63030; font-weight: 700; }
 
 .grupo input,
 .grupo select {
@@ -136,7 +241,6 @@ main {
 .grupo select:focus { border-color: #e63030; }
 
 .grupo input::placeholder { color: rgba(255,255,255,0.2); }
-
 .grupo select option { background: #1a1a1a; }
 
 .fila-dos {
@@ -149,7 +253,6 @@ main {
 .contador {
   display: flex;
   align-items: center;
-  gap: 0;
   background: #161616;
   border: 1px solid #2a2a2a;
   border-radius: 8px;
@@ -178,10 +281,7 @@ main {
 }
 
 /* MÉTODOS DE PAGO */
-.metodos {
-  display: flex;
-  gap: 10px;
-}
+.metodos { display: flex; gap: 10px; }
 
 .metodo {
   flex: 1;
@@ -237,15 +337,8 @@ main {
   margin: 14px 0;
 }
 
-.resumen-fila.total {
-  font-size: 1rem;
-  color: #fff;
-}
-
-.resumen-fila.total strong {
-  color: #e63030;
-  font-size: 1.2rem;
-}
+.resumen-fila.total { font-size: 1rem; color: #fff; }
+.resumen-fila.total strong { color: #e63030; font-size: 1.2rem; }
 
 .btn-pagar {
   width: 100%;
@@ -273,11 +366,33 @@ main {
   margin-top: 10px;
 }
 
-/* RESPONSIVE */
+/* ================================
+   RESPONSIVE — Tablet
+   ================================ */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  main { padding: 40px 24px 60px; }
+}
+
+/* ================================
+   RESPONSIVE — Móvil (hamburguesa)
+   ================================ */
 @media (max-width: 768px) {
-  nav { padding: 16px 20px; }
-  .nav-links { display: none; }
-  main { padding: 40px 20px 60px; }
+
+  /* Ocultar elementos de escritorio */
+  .nav-links       { display: none; }
+  .btn-nav-desktop { display: none; }
+
+  /* Mostrar hamburguesa y menú móvil */
+  .hamburguesa { display: flex; }
+  .menu-movil  { display: flex; }
+
+  nav { padding: 14px 20px; }
+
+  main { padding: 30px 16px 60px; }
+
+  .titulo-pagina h1 { font-size: 2.4rem; }
+
   .contenido { flex-direction: column; }
   .resumen { width: 100%; position: static; }
   .fila-dos { grid-template-columns: 1fr; }

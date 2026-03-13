@@ -25,7 +25,7 @@ ul { list-style: none; }
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 100;
+  z-index: 200;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -80,6 +80,122 @@ nav {
 .btn-nav:hover { background: #c01e1e; }
 
 /* ================================
+   HAMBURGUESA — solo visible en móvil
+   ================================ */
+.hamburguesa {
+  display: none;               /* oculto en escritorio */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 300;
+}
+
+.hamburguesa span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animación X al estar activo */
+.hamburguesa.activo span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburguesa.activo span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburguesa.activo span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ================================
+   MENÚ MÓVIL DESPLEGABLE
+   ================================ */
+.menu-movil {
+  display: none;               /* oculto en escritorio */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 150;
+  background: rgba(8, 8, 8, 0.97);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  padding: 100px 36px 50px;
+  flex-direction: column;
+  gap: 8px;
+  transform: translateY(-100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.menu-movil.abierto {
+  transform: translateY(0);
+}
+
+.menu-movil ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 32px;
+}
+
+.menu-movil ul li {
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.menu-movil ul li a {
+  display: block;
+  padding: 16px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  transition: color 0.2s, padding-left 0.2s;
+}
+
+.menu-movil ul li a:hover,
+.menu-movil ul li a.activo {
+  color: #fff;
+  padding-left: 10px;
+}
+
+.menu-movil ul li a.activo {
+  color: #e63030;
+}
+
+.btn-movil-comprar {
+  display: inline-block;
+  background: #e63030;
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.btn-movil-comprar:hover { background: #c01e1e; }
+
+/* ================================
    HERO — pantalla completa
    ================================ */
 .hero {
@@ -92,7 +208,6 @@ nav {
   overflow: hidden;
 }
 
-/* Imagen de fondo que llena toda la pantalla */
 .hero-fondo {
   position: absolute;
   inset: 0;
@@ -105,7 +220,6 @@ nav {
   object-position: center;
 }
 
-/* Degradado encima de la imagen */
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -114,7 +228,6 @@ nav {
     linear-gradient(to top,   rgba(0,0,0,0.85) 0%, transparent 50%);
 }
 
-/* Contenido principal - abajo a la izquierda */
 .hero-contenido {
   position: relative;
   z-index: 2;
@@ -155,7 +268,6 @@ nav {
   max-width: 420px;
 }
 
-/* Botones */
 .hero-acciones {
   display: flex;
   gap: 14px;
@@ -204,7 +316,6 @@ nav {
   background: rgba(255,255,255,0.08);
 }
 
-/* Stats debajo de los botones */
 .hero-stats {
   display: flex;
   align-items: center;
@@ -237,7 +348,7 @@ nav {
   background: rgba(255,255,255,0.2);
 }
 
-/* Tarjeta flotante - esquina inferior derecha */
+/* Tarjeta flotante */
 .pelicula-flotante {
   position: absolute;
   bottom: 50px;
@@ -300,18 +411,75 @@ nav {
 }
 
 /* ================================
-   RESPONSIVE
+   RESPONSIVE — Tablet
    ================================ */
-
-   @media (max-width: 900px) {
+@media (max-width: 900px) {
   nav { padding: 16px 24px; }
-  .nav-links { display: none; }
-  .hero-contenido { padding: 0 24px 120px; }
-  .hero-contenido h1 { font-size: 4rem; }
+  .hero-contenido { padding: 0 24px 220px; }
+  .hero-contenido h1 { font-size: 4.5rem; }
+
   .pelicula-flotante {
     bottom: 20px;
     right: 16px;
     left: 16px;
+    width: auto;
+  }
+}
+
+/* ================================
+   RESPONSIVE — Móvil (hamburguesa)
+   ================================ */
+@media (max-width: 768px) {
+
+  /* Ocultar elementos de escritorio en nav */
+  .nav-links        { display: none; }
+  .btn-nav-desktop  { display: none; }
+
+  /* Mostrar botón hamburguesa */
+  .hamburguesa { display: flex; }
+
+  /* Mostrar contenedor menú móvil */
+  .menu-movil { display: flex; }
+
+  nav { padding: 16px 20px; }
+
+  /* Hero ajustes móvil */
+  .hero-contenido {
+    padding: 0 20px 240px;
+    max-width: 100%;
+  }
+
+  .hero-contenido h1 {
+    font-size: 3.2rem;
+  }
+
+  .hero-contenido p {
+    font-size: 0.88rem;
+    max-width: 100%;
+  }
+
+  .hero-acciones {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-rojo,
+  .btn-transparente {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-stats {
+    gap: 16px;
+  }
+
+  .stat strong { font-size: 1.2rem; }
+
+  /* Tarjeta flotante en móvil */
+  .pelicula-flotante {
+    bottom: 16px;
+    right: 12px;
+    left: 12px;
     width: auto;
   }
 }
