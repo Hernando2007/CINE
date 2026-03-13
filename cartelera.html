@@ -15,12 +15,12 @@
 
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="#" class="activo">Cartelera</a></li>
+      <li><a href="cartelera.html" class="activo">Cartelera</a></li>
       <li><a href="nosotros.html">Nosotros</a></li>
       <li><a href="./contacto.html">Contáctenos</a></li>
     </ul>
 
-    <button class="btn-nav btn-nav-desktop" onclick="location.href='comprar.html'">Comprar</button>
+    <button class="btn-nav btn-nav-desktop">Comprar</button>
 
     <!-- Botón hamburguesa (solo móvil) -->
     <button class="hamburguesa" id="hamburguesa" aria-label="Abrir menú">
@@ -38,7 +38,7 @@
       <li><a href="nosotros.html" onclick="cerrarMenu()">Nosotros</a></li>
       <li><a href="./contacto.html" onclick="cerrarMenu()">Contáctenos</a></li>
     </ul>
-    <a href="comprar.html" class="btn-rojo-movil">Comprar</a>
+    <button class="btn-rojo-movil">Comprar</button>
   </div>
 
   <!-- BANNER -->
@@ -75,7 +75,7 @@
           <span class="badge">IMAX</span>
           <div class="card-hover">
             <p>Un detective descubre una red de corrupción que va hasta las más altas esferas del poder.</p>
-            <button onclick="location.href='comprar.html'">Comprar entrada</button>
+            <button>Comprar entrada</button>
           </div>
         </div>
         <div class="card-info">
@@ -96,7 +96,7 @@
           <span class="badge badge-verde">NUEVO</span>
           <div class="card-hover">
             <p>Dos desconocidos se encuentran en un pequeño pueblo y descubren que sus vidas están más conectadas de lo que creen.</p>
-            <button onclick="location.href='comprar.html'">Comprar entrada</button>
+            <button>Comprar entrada</button>
           </div>
         </div>
         <div class="card-info">
@@ -116,7 +116,7 @@
           <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=500&q=80" alt=""/>
           <div class="card-hover">
             <p>Una familia se muda a una antigua casa y comienza a vivir sucesos inexplicables que amenazan su cordura.</p>
-            <button onclick="location.href='comprar.html'">Comprar entrada</button>
+            <button>Comprar entrada</button>
           </div>
         </div>
         <div class="card-info">
@@ -137,7 +137,7 @@
           <span class="badge badge-azul">4DX</span>
           <div class="card-hover">
             <p>Un grupo de científicos lucha por sobrevivir en medio de la tormenta más poderosa jamás registrada.</p>
-            <button onclick="location.href='comprar.html'">Comprar entrada</button>
+            <button>Comprar entrada</button>
           </div>
         </div>
         <div class="card-info">
@@ -158,7 +158,7 @@
           <span class="badge badge-verde">FAMILIA</span>
           <div class="card-hover">
             <p>Un pequeño robot descubre un mundo mágico escondido debajo de la ciudad y emprende una aventura épica.</p>
-            <button onclick="location.href='comprar.html'">Comprar entrada</button>
+            <button>Comprar entrada</button>
           </div>
         </div>
         <div class="card-info">
@@ -179,7 +179,7 @@
           <span class="badge">IMAX</span>
           <div class="card-hover">
             <p>Una misión espacial de rescate se convierte en la mayor odisea de la humanidad.</p>
-            <button onclick="location.href='comprar.html'">Comprar entrada</button>
+            <button>Comprar entrada</button>
           </div>
         </div>
         <div class="card-info">
@@ -198,7 +198,7 @@
   </main>
 
   <script>
-    // Hamburguesa
+    
     const hamburguesa = document.getElementById('hamburguesa');
     const menuMovil   = document.getElementById('menuMovil');
 
