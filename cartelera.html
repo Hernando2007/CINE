@@ -212,14 +212,7 @@
       menuMovil.classList.remove('abierto');
     }
 
-    // Filtros
-    function filtrar(btn, gen) {
-      document.querySelectorAll('.filtro').forEach(b => b.classList.remove('activo'));
-      btn.classList.add('activo');
-      document.querySelectorAll('.card').forEach(card => {
-        card.style.display = (gen === 'todas' || card.dataset.gen === gen) ? '' : 'none';
-      });
-    }
+    
   </script>
 
 </body>
